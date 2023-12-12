@@ -15,10 +15,11 @@ app.use('/', express.static(path.join(__dirname, 'public')));
 app.get('/app1', (req, res) => {
   res.send('Hello this Apps 1!')
 });
-
 app.get('/app2', (req, res) => {
   res.send('Hello this App 2!')
 });
+app = express();  // Compliant
+app.disable("x-powered-by");
 
 app.get('/users', (req, res, next) => {
   const sql = "SELECT * FROM tb_data ORDER BY id desc"
